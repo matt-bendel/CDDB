@@ -7,4 +7,5 @@ python sample.py \
 --clip-denoise \
 --nfe 1000 \
 --step-size 1.0 \
---use-cddb
+--use-cddb \
+--method cddb_reg
