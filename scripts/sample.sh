@@ -8,4 +8,5 @@ python sample.py \
 --nfe 1000 \
 --step-size 1.0 \
 --use-cddb \
---method cddb_reg
+--method cddb_no_reg \
+--no-reg
