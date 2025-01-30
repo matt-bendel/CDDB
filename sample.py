@@ -248,7 +248,7 @@ def main(opt):
         
         dist.barrier()
 
-        if num == 1000:
+        if num == 100:
             exit()
 
     del runner
