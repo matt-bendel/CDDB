@@ -180,6 +180,7 @@ def download_ckpt(ckpt_dir="data/"):
 def build_ckpt_option(opt, log, ckpt_path):
     ckpt_path = Path(ckpt_path)
     opt_pkl_path = ckpt_path / "options.pkl"
+    print(opt_pkl_path)
     assert opt_pkl_path.exists()
     with open(opt_pkl_path, "rb") as f:
         ckpt_opt = pickle.load(f)
