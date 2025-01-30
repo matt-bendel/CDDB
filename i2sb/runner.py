@@ -335,11 +335,7 @@ class Runner(object):
     
     def cddb_sampling(self, opt, x1, x1_pinv, x1_forw, mask=None, corrupt_type=None, corrupt_method=None, cond=None, clip_denoise=False, 
                       nfe=None, log_count=10, verbose=True, step_size=1.0, results_dir=None):
-        nfe = nfe or opt.interval-1
-        print(nfe)
-        print(opt.interval)
-        print(len(self.diffusion.betas))
-        exit()
+        nfe = opt.interval-1
         assert 0 < nfe < opt.interval == len(self.diffusion.betas)
         steps = util.space_indices(opt.interval, nfe+1)
 
