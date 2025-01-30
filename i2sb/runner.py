@@ -335,6 +335,11 @@ class Runner(object):
     
     def cddb_sampling(self, opt, x1, x1_pinv, x1_forw, mask=None, corrupt_type=None, corrupt_method=None, cond=None, clip_denoise=False, 
                       nfe=None, log_count=10, verbose=True, step_size=1.0, results_dir=None):
+        print(opt.interval)
+        print(nfe)
+        print(len(self.diffusion.betas))
+        exit()
+        assert 0 < nfe < opt.interval == len(self.diffusion.betas)
         steps = util.space_indices(opt.interval, nfe+1)
 
         # create log steps
