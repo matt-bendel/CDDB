@@ -177,9 +177,10 @@ def download_ckpt(ckpt_dir="data/"):
     download_adm_image256_uncond_ckpt(ckpt_dir=ckpt_dir)
     download_adm_image256_cond_ckpt(ckpt_dir=ckpt_dir)
 
-def build_ckpt_option(opt, log, ckpt_path):
+def build_ckpt_option(opt, log, ckpt_path, no_reg=False):
+    reg_str = "_no_reg" if no_reg else ""
     ckpt_path = Path(ckpt_path)
-    opt_pkl_path = ckpt_path / "options.pkl"
+    opt_pkl_path = ckpt_path / f"options{reg_str}.pkl"
     print(opt_pkl_path)
     assert opt_pkl_path.exists()
     with open(opt_pkl_path, "rb") as f:
@@ -191,5 +192,5 @@ def build_ckpt_option(opt, log, ckpt_path):
         assert hasattr(opt, k)
         setattr(ckpt_opt, k, getattr(opt, k))
 
-    ckpt_opt.load = ckpt_path / "latest.pt"
+    ckpt_opt.load = ckpt_path / f"latest{reg_str}.pt"
     return ckpt_opt
