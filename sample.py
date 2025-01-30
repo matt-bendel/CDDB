@@ -150,7 +150,7 @@ def main(opt):
     # get (default) ckpt option
     ckpt_opt = ckpt_util.build_ckpt_option(opt, log, RESULT_DIR / opt.ckpt)
     corrupt_type = ckpt_opt.corrupt
-    nfe = opt.nfe or ckpt_opt.interval-1
+    nfe = opt.nfe
 
     # build corruption method
     corrupt_method = build_corruption(opt, log, corrupt_type=corrupt_type)
