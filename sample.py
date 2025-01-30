@@ -24,7 +24,7 @@ from i2sb import ckpt_util
 import colored_traceback.always
 from ipdb import set_trace as debug
 
-RESULT_DIR = Path("results")
+RESULT_DIR = Path("/storage/matt_models/ddb")
 
 
 def set_seed(seed):
@@ -96,13 +96,13 @@ def build_val_dataset(opt, log, corrupt_type):
 def get_recon_imgs_fn(opt, nfe):
     if opt.use_cddb_deep:
         suffix = f"samples_cddb_deep_nfe{nfe}_step{opt.step_size}"
-        sample_dir = RESULT_DIR / opt.ckpt / suffix
+        sample_dir = RESULT_DIR / opt.method / opt.ckpt / suffix
     elif opt.use_cddb:
         suffix = f"samples_cddb_nfe{nfe}_step{opt.step_size}"
-        sample_dir = RESULT_DIR / opt.ckpt / suffix
+        sample_dir = RESULT_DIR / opt.method / opt.ckpt / suffix
     else:
         suffix = f"samples_nfe{nfe}_clip_1k"
-        sample_dir = RESULT_DIR / opt.ckpt / suffix
+        sample_dir = RESULT_DIR / opt.method / opt.ckpt / suffix
     os.makedirs(sample_dir, exist_ok=True)
 
     recon_imgs_fn = sample_dir / "recon{}.pt".format(
@@ -186,7 +186,7 @@ def main(opt):
     num = 0
     
     log_count = 10
-    
+
     for loader_itr, out in enumerate(val_loader):
         corrupt_img, x1, mask, cond, y, clean_img, x1_pinv, x1_forw = compute_batch(ckpt_opt, corrupt_type, corrupt_method, out)
 
@@ -248,6 +248,9 @@ def main(opt):
         
         dist.barrier()
 
+        if num == 1000:
+            exit()
+
     del runner
 
     arr = torch.cat(recon_imgs, axis=0)[:n_samples]
@@ -266,6 +269,7 @@ if __name__ == '__main__':
     parser.add_argument("--seed",           type=int,  default=0)
     parser.add_argument("--n-gpu-per-node", type=int,  default=1,           help="number of gpu on each node")
     parser.add_argument("--master-address", type=str,  default='localhost', help="address for master")
+    parser.add_argument("--method", type=str,  default='cddb', help="name for method under test")
     parser.add_argument("--node-rank",      type=int,  default=0,           help="the index of node")
     parser.add_argument("--num-proc-node",  type=int,  default=1,           help="The number of nodes in multi node env")
 
