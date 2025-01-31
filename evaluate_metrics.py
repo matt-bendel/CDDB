@@ -60,10 +60,10 @@ if __name__ == '__main__':
 
     loss_fn_vgg = lpips.LPIPS(net='vgg').cuda()
 
-    PSNR_all_imgs = torch.zeros(1000, 1)
-    LPIPS_all_imgs = torch.zeros(1000, 1)
-
     total_num_of_images = 100
+
+    PSNR_all_imgs = torch.zeros(total_num_of_images, 1)
+    LPIPS_all_imgs = torch.zeros(total_num_of_images, 1)
 
     gt_test_image_folder = f"/storage/matt_models/ddb/{opt.method}/{opt.ckpt}/samples/label/"
     recon_image_folder = f"/storage/matt_models/ddb/{opt.method}/{opt.ckpt}/samples/recon/"
