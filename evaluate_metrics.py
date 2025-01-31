@@ -75,10 +75,6 @@ if __name__ == '__main__':
         gt_img_path = os.path.join(gt_test_image_folder, num_str)
         output_img_path = os.path.join(recon_image_folder, num_str)
 
-        print(gt_img_path)
-        print(output_img_path)
-        exit()
-
         # Read images
         gt_image_0_255 = cv2.imread(gt_img_path, cv2.IMREAD_COLOR)
         recon_img_0_255 = cv2.imread(output_img_path, cv2.IMREAD_COLOR)
