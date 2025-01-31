@@ -68,12 +68,16 @@ if __name__ == '__main__':
     gt_test_image_folder = f"/storage/matt_models/ddb/{opt.method}/{opt.ckpt}/samples/label/"
     recon_image_folder = f"/storage/matt_models/ddb/{opt.method}/{opt.ckpt}/samples/recon/"
 
-    # TODO: PSNR + SSIM + LPIPS
+    # TODO: SSIM
     for test_image_number in range(total_num_of_images):
         num_str = f"{test_image_number:03}.png"
 
         gt_img_path = os.path.join(gt_test_image_folder, num_str)
         output_img_path = os.path.join(recon_image_folder, num_str)
+
+        print(gt_img_path)
+        print(output_img_path)
+        exit()
 
         # Read images
         gt_image_0_255 = cv2.imread(gt_img_path, cv2.IMREAD_COLOR)
