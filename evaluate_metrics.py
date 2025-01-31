@@ -84,8 +84,9 @@ if __name__ == '__main__':
 
         # if test_image_number%50 == 0:
         #     print(f"Processing image {test_image_number}/1000")
-
-        PSNR_all_imgs[test_image_number, 0] = compute_psnr(gt_image, recon_img)
+        psnr = compute_psnr(gt_image, recon_img)
+        print(psnr)
+        PSNR_all_imgs[test_image_number, 0] = psnr
 
         x_m1t1 = torch.from_numpy((2 * (1 * gt_image_0_255 / 255) - 1)).permute(2, 0, 1).unsqueeze(
             0).contiguous().float().cuda()

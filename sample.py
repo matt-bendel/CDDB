@@ -95,13 +95,13 @@ def build_val_dataset(opt, log, corrupt_type):
 
 def get_recon_imgs_fn(opt, nfe):
     if opt.use_cddb_deep:
-        suffix = f"samples_cddb_deep_nfe{nfe}_step{opt.step_size}"
+        suffix = f"samples"
         sample_dir = RESULT_DIR / opt.method / opt.ckpt / suffix
     elif opt.use_cddb:
-        suffix = f"samples_cddb_nfe{nfe}_step{opt.step_size}"
+        suffix = f"samples"
         sample_dir = RESULT_DIR / opt.method / opt.ckpt / suffix
     else:
-        suffix = f"samples_nfe{nfe}_clip_1k"
+        suffix = f"samples"
         sample_dir = RESULT_DIR / opt.method / opt.ckpt / suffix
     os.makedirs(sample_dir, exist_ok=True)
 
