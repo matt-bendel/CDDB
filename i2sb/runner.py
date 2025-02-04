@@ -103,7 +103,7 @@ class Runner(object):
             self.net.load_state_dict(checkpoint['net'])
             log.info(f"[Net] Loaded network ckpt: {opt.load}!")
             self.ema.load_state_dict(checkpoint["ema"])
-            print(checkpoint)
+            print(checkpoint.keys())
             exit()
             log.info(f"[Ema] Loaded ema ckpt: {opt.load}!")
 
