@@ -187,6 +187,9 @@ def main(opt):
     
     log_count = 10
 
+    print(ckpt_opt)
+    exit()
+
     for loader_itr, out in enumerate(val_loader):
         corrupt_img, x1, mask, cond, y, clean_img, x1_pinv, x1_forw = compute_batch(ckpt_opt, corrupt_type, corrupt_method, out)
 
