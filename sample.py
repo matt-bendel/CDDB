@@ -188,6 +188,8 @@ def main(opt):
     log_count = 10
 
     for loader_itr, out in enumerate(val_loader):
+        if (loader_itr + 1) % 10 != 0:
+            continue
         corrupt_img, x1, mask, cond, y, clean_img, x1_pinv, x1_forw = compute_batch(ckpt_opt, corrupt_type, corrupt_method, out)
 
         if opt.use_cddb_deep:
@@ -248,7 +250,7 @@ def main(opt):
         
         dist.barrier()
 
-        if num == 100:
+        if num == 1000:
             exit()
 
     del runner
