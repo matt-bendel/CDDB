@@ -148,7 +148,7 @@ def main(opt):
     log = Logger(opt.global_rank, ".log")
 
     # get (default) ckpt option
-    ckpt_opt = ckpt_util.build_ckpt_option(opt, log, RESULT_DIR / opt.ckpt, no_reg=opt.no_reg)
+    ckpt_opt = ckpt_util.build_ckpt_option(opt, log, RESULT_DIR / opt.ckpt_dir, no_reg=opt.no_reg)
     corrupt_type = ckpt_opt.corrupt
     nfe = opt.nfe or ckpt_opt.interval-1
 
@@ -274,7 +274,7 @@ if __name__ == '__main__':
     parser.add_argument("--num-proc-node",  type=int,  default=1,           help="The number of nodes in multi node env")
 
     # data
-    parser.add_argument("--image-size",     type=int,  default=256)
+    parser.add_argument("--image-size",     type=int,  default=128)
     parser.add_argument("--dataset-dir",    type=Path, default="/dataset",  help="path to LMDB dataset")
     parser.add_argument("--partition",      type=str,  default=None,        help="e.g., '0_4' means the first 25% of the dataset")
     parser.add_argument("--add-noise",      action="store_true",            help="If true, add small gaussian noise to y")
@@ -282,13 +282,14 @@ if __name__ == '__main__':
     # sample
     parser.add_argument("--batch-size",     type=int,  default=32)
     parser.add_argument("--ckpt",           type=str,  default=None,        help="the checkpoint name from which we wish to sample")
+    parser.add_argument("--ckpt-dir",           type=str,  default=None,        help="the checkpoint name from which we wish to sample")
     parser.add_argument("--nfe",            type=int,  default=None,        help="sampling steps")
     parser.add_argument("--clip-denoise",   action="store_true",            help="clamp predicted image to [-1,1] at each")
     parser.add_argument("--use-fp16",       action="store_true",            help="use fp16 network weight for faster sampling")
     parser.add_argument("--eta",            type=float, default=1.0,        help="ddim stochasticity. 1.0 recovers ddpm")
     parser.add_argument("--use-cddb-deep",  action="store_true",            help="use cddb-deep")
     parser.add_argument("--use-cddb",       action="store_true",            help="use cddb")
-    parser.add_argument("--no-reg",       action="store_true",            help="use original I2SB weights")
+    parser.add_argument("--no-reg",       action="str",            help="use original I2SB weights")
     parser.add_argument("--step-size",      type=float, default=1.0,        help="step size for gradient descent")
     parser.add_argument("--prob_mask",      type=float, default=0.35,       help="probability of masking")
     
