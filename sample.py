@@ -291,7 +291,7 @@ if __name__ == '__main__':
     parser.add_argument("--eta",            type=float, default=1.0,        help="ddim stochasticity. 1.0 recovers ddpm")
     parser.add_argument("--use-cddb-deep",  action="store_true",            help="use cddb-deep")
     parser.add_argument("--use-cddb",       action="store_true",            help="use cddb")
-    parser.add_argument("--no-reg",       action="str",            help="use original I2SB weights")
+    parser.add_argument("--no-reg",       action="store_true",            help="use original I2SB weights")
     parser.add_argument("--step-size",      type=float, default=1.0,        help="step size for gradient descent")
     parser.add_argument("--prob_mask",      type=float, default=0.35,       help="probability of masking")
     
