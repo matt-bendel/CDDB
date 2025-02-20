@@ -84,11 +84,11 @@ class Runner(object):
         opt.interval = 1000 # TODO: REMOVE!
 
         # Save opt.
-        if save_opt:
-            opt_pkl_path = opt.ckpt_path / "options.pkl"
-            with open(opt_pkl_path, "wb") as f:
-                pickle.dump(opt, f)
-            log.info("Saved options pickle to {}!".format(opt_pkl_path))
+        # if save_opt:
+        #     opt_pkl_path = opt.ckpt_path / "options.pkl"
+        #     with open(opt_pkl_path, "wb") as f:
+        #         pickle.dump(opt, f)
+        #     log.info("Saved options pickle to {}!".format(opt_pkl_path))
 
         betas = make_beta_schedule(n_timestep=opt.interval, linear_end=opt.beta_max / opt.interval)
         betas = np.concatenate([betas[:opt.interval//2], np.flip(betas[:opt.interval//2])])
