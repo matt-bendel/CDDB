@@ -81,6 +81,7 @@ def all_cat_cpu(opt, log, t):
 class Runner(object):
     def __init__(self, opt, log, save_opt=True):
         super(Runner,self).__init__()
+        opt.interval = 1000 # TODO: REMOVE!
 
         # Save opt.
         if save_opt:
