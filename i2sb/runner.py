@@ -259,9 +259,9 @@ class Runner(object):
         # create discrete time steps that split [0, INTERVAL] into NFE sub-intervals.
         # e.g., if NFE=2 & INTERVAL=1000, then STEPS=[0, 500, 999] and 2 network
         # evaluations will be invoked, first from 999 to 500, then from 500 to 0.
-        nfe = nfe or opt.interval-1
-        assert 0 < nfe < opt.interval == len(self.diffusion.betas)
-        steps = util.space_indices(opt.interval, nfe+1)
+        # nfe = nfe or opt.interval-1
+        # assert 0 < nfe < opt.interval == len(self.diffusion.betas)
+        steps = util.space_indices(opt.interval, nfe)
 
         # create log steps
         log_count = min(len(steps)-1, log_count)
