@@ -192,7 +192,7 @@ def main(opt):
 
         sv_idx = str(loader_itr).zfill(3)
 
-        label_idx = (clean_img[idx:idx + 1, ...] + 1) / 2
+        label_idx = (clean_img[0:1, ...] + 1) / 2
         tu.save_image(label_idx, str(Path("/storage/imagenet_128_val") / f"{sv_idx}.png"))
         continue
 
