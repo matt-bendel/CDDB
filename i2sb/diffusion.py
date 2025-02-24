@@ -315,7 +315,7 @@ class Diffusion():
             xt = xt - mu_x0 * step_size * norm_grad
             
             # take multiple gradient steps
-            if results_dir is not None:
+            # if results_dir is not None:
                 # if cnt == 5:
                 #     plt.imsave(str(results_dir / "x0_before" / f"{step}.png"), clear_color(pred_x0))
                 #     for k in range(5):
