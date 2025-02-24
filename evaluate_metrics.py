@@ -60,13 +60,13 @@ if __name__ == '__main__':
 
     loss_fn_vgg = lpips.LPIPS(net='vgg').cuda()
 
-    total_num_of_images = 100
+    total_num_of_images = 1000
 
     PSNR_all_imgs = torch.zeros(total_num_of_images, 1)
     LPIPS_all_imgs = torch.zeros(total_num_of_images, 1)
 
-    gt_test_image_folder = f"/storage/matt_models/ddb/{opt.method}/{opt.ckpt}/samples/label/"
-    recon_image_folder = f"/storage/matt_models/ddb/{opt.method}/{opt.ckpt}/samples/recon/"
+    gt_test_image_folder = f"/storage/matt_models/ddb/{opt.method}/{opt.ckpt}-{opt.nfe}/samples/label/"
+    recon_image_folder = f"/storage/matt_models/ddb/{opt.method}/{opt.ckpt}-{opt.nfe}/samples/recon/"
 
     # TODO: SSIM
     for test_image_number in range(total_num_of_images):
