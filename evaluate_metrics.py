@@ -70,7 +70,11 @@ if __name__ == '__main__':
 
     # TODO: SSIM
     for test_image_number in range(total_num_of_images):
-        num_str = f"{test_image_number:03}.png"
+        new_num = 10 * test_image_number + 9
+        if new_num < 1000:
+            num_str = f"{new_num:03}.png"
+        else:
+            num_str = f"{new_num}.png"
 
         gt_img_path = os.path.join(gt_test_image_folder, num_str)
         output_img_path = os.path.join(recon_image_folder, num_str)
