@@ -316,15 +316,15 @@ class Diffusion():
             
             # take multiple gradient steps
             if results_dir is not None:
-                if cnt == 5:
-                    plt.imsave(str(results_dir / "x0_before" / f"{step}.png"), clear_color(pred_x0))
-                    for k in range(5):
-                        pred_x0 = pred_x0 - step_size * norm_grad
-                        _, corrupt_x0_forw = corrupt_method(pred_x0)
-                        residual = corrupt_x0_forw - x1_forw
-                        residual_norm = torch.linalg.norm(residual) ** 2
-                        norm_grad = torch.autograd.grad(outputs=residual_norm, inputs=pred_x0)[0]
-                        plt.imsave(str(results_dir / "x0_after" / f"{step}_{k}.png"), clear_color(pred_x0))
+                # if cnt == 5:
+                #     plt.imsave(str(results_dir / "x0_before" / f"{step}.png"), clear_color(pred_x0))
+                #     for k in range(5):
+                #         pred_x0 = pred_x0 - step_size * norm_grad
+                #         _, corrupt_x0_forw = corrupt_method(pred_x0)
+                #         residual = corrupt_x0_forw - x1_forw
+                #         residual_norm = torch.linalg.norm(residual) ** 2
+                #         norm_grad = torch.autograd.grad(outputs=residual_norm, inputs=pred_x0)[0]
+                #         plt.imsave(str(results_dir / "x0_after" / f"{step}_{k}.png"), clear_color(pred_x0))
             
             xt.detach_()
             pred_x0.detach_()
