@@ -309,7 +309,6 @@ class Diffusion():
             # residual = corrupt_x0 - x1_meas
             residual = corrupt_x0_forw - x1_forw
             residual_norm = torch.linalg.norm(residual) ** 2
-            print(residual_norm[0].requires_grad)
             norm_grad = torch.autograd.grad(outputs=residual_norm, inputs=pred_x0)[0]
             
             xt, mu_x0 = self.p_posterior(prev_step, step, xt, pred_x0, ot_ode=ot_ode, verbose=True)
