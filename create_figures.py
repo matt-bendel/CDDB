@@ -88,7 +88,7 @@ for problem in probs:
                     ax.set_yticks([])
                     col_index += 1
 
-            im_idx += 10
+            im_idx += 20
 
         plt.savefig(f'figures/{problem}_fig_{fig_count}.png', bbox_inches='tight', dpi=300)
         plt.close(fig)
