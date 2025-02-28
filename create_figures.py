@@ -9,7 +9,7 @@ import matplotlib.patches as patches
 
 ncol = 10
 num_rows_per_fig = 3
-num_figs_per_prob = 3
+num_figs_per_prob = 5
 
 probs = ['sr4x-bicubic', 'inpaint-center']
 nfes = [20, 1000]
