@@ -9,7 +9,7 @@ import matplotlib.patches as patches
 
 ncol = 10
 num_rows_per_fig = 3
-num_figs_per_prob = 5
+num_figs_per_prob = 10
 
 probs = ['sr4x-bicubic', 'inpaint-center']
 nfes = [20, 1000]
@@ -40,7 +40,7 @@ def load_image_as_np_array(im_path):
 im_path = lambda nfe_str, prob, method: f'/storage/matt_models/ddb/{method}/{prob}-{nfe_str}/samples/recon'
 save_path = 'figures'
 for problem in probs:
-    im_idx = 0
+    im_idx = 10
     fig_count = 0
 
     for i in range(num_figs_per_prob):
@@ -88,7 +88,7 @@ for problem in probs:
                     ax.set_yticks([])
                     col_index += 1
 
-            im_idx += 2
+            im_idx += 10
 
         plt.savefig(f'figures/{problem}_fig_{fig_count}.png', bbox_inches='tight', dpi=300)
         plt.close(fig)
