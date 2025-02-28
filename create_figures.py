@@ -67,7 +67,7 @@ for problem in probs:
             # Measurements
             ax = plt.subplot(gs[j, 1])
             im = ax.imshow(load_image_as_np_array(
-                f'/storage/matt_models/ddb/baseline-128/sr4x-bicubic-1000/samples/input/{num_str}'))
+                f'/storage/matt_models/ddb/baseline-128/{problem}-1000/samples/input/{num_str}'))
             ax.set_xticklabels([])
             ax.set_yticklabels([])
             ax.set_xticks([])
