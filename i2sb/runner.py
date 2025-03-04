@@ -81,7 +81,7 @@ def all_cat_cpu(opt, log, t):
 class Runner(object):
     def __init__(self, opt, log, save_opt=True):
         super(Runner,self).__init__()
-        opt.interval = 1000 # TODO: REMOVE!
+        # opt.interval = 1000 # TODO: REMOVE!
 
         # Save opt.
         # if save_opt:
@@ -336,7 +336,7 @@ class Runner(object):
     
     def cddb_sampling(self, opt, x1, x1_pinv, x1_forw, mask=None, corrupt_type=None, corrupt_method=None, cond=None, clip_denoise=False, 
                       nfe=None, log_count=10, verbose=True, step_size=1.0, results_dir=None):
-        opt.interval = 1000 # TODO: REMOVE!
+        # opt.interval = 1000 # TODO: REMOVE!
         # nfe = opt.interval-1
         assert 0 < nfe < opt.interval == len(self.diffusion.betas)
         steps = util.space_indices(opt.interval, nfe+1)
