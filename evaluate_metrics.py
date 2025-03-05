@@ -60,7 +60,7 @@ if __name__ == '__main__':
 
     loss_fn_vgg = lpips.LPIPS(net='vgg').cuda()
 
-    total_num_of_images = 1000
+    total_num_of_images = 500
 
     PSNR_all_imgs = torch.zeros(total_num_of_images, 1)
     LPIPS_all_imgs = torch.zeros(total_num_of_images, 1)
