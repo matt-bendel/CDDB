@@ -250,7 +250,7 @@ def main(opt):
         
         dist.barrier()
 
-        if num == 1000:
+        if num == 500:
             exit()
 
     del runner
