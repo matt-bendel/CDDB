@@ -1,9 +1,14 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-psnrs = []
-fids = []
-lpipss = []
+# Baseline Results...
+# FID: 84.54
+# PSNR: 24.22
+# LPIPS: 0.2541
+
+psnrs = [24.25, 24.24, 24.19, 23.78, 21.33]
+fids = [84.45, 84.31, 84.53, 85.65, 97.13]
+lpipss = [0.2527, 0.2530, 0.2537, 0.2624, 0.3462]
 
 x_axis = [1e-4, 1e-3, 1e-2, 1e-1, 1.0]
 

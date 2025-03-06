@@ -102,10 +102,15 @@ if __name__ == '__main__':
     # Average PSNR and LPIPS
     print("=====================================")
     PSNR_avg_np_round = np.round(PSNR_all_imgs[:-1].mean().numpy(), 2)
+    PSNR_std_err = np.round(PSNR_all_imgs[:-1].std().numpy(), 2) / np.sqrt(len(PSNR_all_imgs))
     LPIPS_avg_np_round = np.round(LPIPS_all_imgs[:-1].mean().numpy(), 4)
+    LPIPS_std_err = np.round(LPIPS_all_imgs[:-1].std().numpy(), 2) / np.sqrt(len(LPIPS_all_imgs))
+
     # print(" ")
     # PSNR_all_imgs_mean = np.round(torch.mean(PSNR_all_imgs[:,0]).numpy(),2)
     print("Average PSNR  :", PSNR_avg_np_round)
+    print("PSNR Std. Err: ", LPIPS_std_err)
     print("Average LPIPS :", LPIPS_avg_np_round)
+    print("PSNR Std. Err: ", PSNR_std_err)
     # print(" ")
     print("=====================================")
